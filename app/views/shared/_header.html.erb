@@ -1,24 +1,29 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
+<div class= "header bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-light ">
+    <div class="container-fluid ">
+      <%= link_to "タスクマネージャー", root_path, class: "navbar-brand text-white"  %>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <% if user_signed_in? %>
+            <li class="nav-item">
+              <%= link_to current_user.nickname, "#", class: "nav-link text-white" %></li> 
+            </li>
+            <li class="nav-item">
+              <li><%= link_to 'ルーム作成', new_room_path, class: "nav-link text-white" %></li>
+            </li>
+            <li class="nav-item text-white">
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link text-white" %>
+            </li>
+          <% else %>
+          <li class="nav-item">
+            <li><%= link_to 'ログイン', new_user_session_path, class: "nav-link text-white" %></li>
+          </li>
+          <li class="nav-item">
+            <li><%= link_to '新規登録', new_user_registration_path, class: "nav-link text-white" %></li>
+          </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
+</div>

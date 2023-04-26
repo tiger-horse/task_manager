@@ -17,3 +17,13 @@
  * {
   box-sizing: border-box;
 }
+
+.header { 
+  width: 100vw;
+  height: 50px;
+}
+
+.footer{
+  width: 100vw;
+  height: 50px;
+}

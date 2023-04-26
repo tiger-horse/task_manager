@@ -1,0 +1,33 @@
+<%= render "shared/header" %>
+<div class="main text-center">
+  <div class="w-50 m-auto bg-light  text-align-center mt-5 rounded-3">
+    <%= link_to '#',  class: "text-body btn " do %>
+    <h1><%= @room.name %></h1>
+    
+        <div class="room">
+          <div class="room-name mb-3">
+            <h5>参加者</h5>
+            <% @room.users.where.not(id: current_user.id).each do |user| %>
+              <p><%= user.nickname %></p>
+            <% end %>
+          </div>
+        </div>
+        <div>
+          
+            <h5>作成者</h5>
+            <p><%= @owner.name %></p>
+          
+          </div>
+          
+          
+          <% end %>
+          <div>
+            <% if user_signed_in? && current_user.id == @owner.user.id %>
+              <%= link_to "ルームの編集", edit_room_path(@room.id), method: :get, class:"btn btn-primary"  %>
+              <p class="or-text mt-3">or</p>
+              <%= link_to "削除", room_path(@room.id), method: :delete, class:"btn btn-danger", data: {confirm: "ルームを削除しますか？"} %>
+            <% end %>
+          </div>
+  </div>
+</div>
+<%= render "shared/footer" %>
