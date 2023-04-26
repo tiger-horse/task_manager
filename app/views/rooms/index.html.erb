@@ -1,6 +1,14 @@
 <%= render "shared/header" %>
-<div class="main">
+<div class="main text-center">
+  <% if user_signed_in? %>
   <h1>参加しているルーム</h1>
-  
+    <% current_user.rooms.each do |room| %>
+      <div class="room">
+        <div class="room-name mb-3">
+          <%= link_to room.name, room_path(room.id),  class: "text-decoration-none text-white btn btn-secondary" %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 </div>
 <%= render "shared/footer" %>

@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_04_24_014408) do
+ActiveRecord::Schema.define(version: 2023_04_25_134021) do
+
+  create_table "owners", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.bigint "room_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_owners_on_room_id"
+    t.index ["user_id"], name: "index_owners_on_user_id"
+  end
+
+  create_table "room_users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "room_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_room_users_on_room_id"
+    t.index ["user_id", "room_id"], name: "index_room_users_on_user_id_and_room_id", unique: true
+    t.index ["user_id"], name: "index_room_users_on_user_id"
+  end
 
   create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -31,4 +51,8 @@ ActiveRecord::Schema.define(version: 2023_04_24_014408) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "owners", "rooms"
+  add_foreign_key "owners", "users"
+  add_foreign_key "room_users", "rooms"
+  add_foreign_key "room_users", "users"
 end

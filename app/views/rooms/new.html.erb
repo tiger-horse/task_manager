@@ -1,0 +1,42 @@
+<%= render "shared/header" %>
+<div class="main d-flex justify-content-center bg-primary w-50 h-75 m-auto text-center mt-5 mb-5 rounded-3 bg-light">
+<div class='chat-room-form pt-5'>
+  <h1>新規ルーム作成</h1>
+  <%=form_with model: @room, local: true do |f|%>
+    <%= render 'shared/error_messages', model: f.object %>
+    <div class='chat-room-form__field mt-5'>
+      <div class='chat-room-form__field--left'>
+        <%= f.label :name, :ルーム名, class: 'chat-room-form__label'%>
+      </div>
+      <div class='chat-room-form__field--right'>
+        <%= f.text_field :name, class: 'chat__room_name chat-room-form__input', placeholder: 'チャットルーム名を入力してください'%>
+      </div>
+    </div>
+    <div class='chat-room-form__field'>
+    </div>
+    <div class='chat-room-form__field overflow-x-auto'>
+      <div class='chat-room-form__field--left mt-5'>
+        <label class='chat-room-form__label' for='chat_room_チャットメンバー'>チャットメンバー</label>
+      </div>
+      <div class='chat-room-form__field--right mt-3'>
+        <% User.where.not(id: current_user.id).each do |user| %>
+          <label>
+            <%= check_box_tag "room[user_ids][]", user.id %>
+            <%= user.nickname %>
+          </label>
+        <% end %>
+        <%= hidden_field_tag "room[user_ids][]", current_user.id %>
+        <%= hidden_field_tag "room_usre[create_user_ids][]", current_user.id %>
+      </div>
+    </div>
+    <div class='chat-room-form__field'>
+      <div class='chat-room-form__field--left'></div>
+      <div class='chat-room-form__field--right'>
+        <div class="text-danger">自動的に作成者はルームに参加します</div>
+        <%= f.submit "ルーム作成", class: 'btn btn-primary mt-5'%>
+      </div>
+    </div>
+  <% end %>
+</div>
+</div>
+<%= render "shared/footer" %>
