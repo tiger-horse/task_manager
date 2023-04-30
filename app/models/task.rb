@@ -8,5 +8,4 @@ class Task < ApplicationRecord
     validates :content
     validates :start_time
   end
-  
 end
