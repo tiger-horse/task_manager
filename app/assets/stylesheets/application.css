@@ -12,10 +12,14 @@
  *
  *= require_tree .
  *= require_self
+ *= require simple_calendar
  */
 
  * {
   box-sizing: border-box;
+}
+.body{
+  height: 100vh;
 }
 
 .header { 
@@ -26,4 +30,9 @@
 .footer{
   width: 100vw;
   height: 50px;
+}
+
+.main {
+  width: 100vw;
+  height: calc(100vh - 100px)
 }

@@ -1,20 +1,19 @@
 class RoomsController < ApplicationController
-  before_action :set_room, only: [:edit, :show, :update, :destroy]
-  
+  before_action :set_room, only: %i[edit show update destroy]
+
   def index
     @rooms = Room.includes(:user)
   end
-  
+
   def new
     @room = Room.new
   end
 
   def create
-    # binding.pry
     @room = Room.new(room_params)
-    
-    if @room.save 
-      Owner.create(name:current_user.nickname, user_id: current_user.id, room_id:@room.id)
+
+    if @room.save
+      Owner.create(name: current_user.nickname, user_id: current_user.id, room_id: @room.id)
       redirect_to root_path
     else
       render :new
@@ -25,9 +24,7 @@ class RoomsController < ApplicationController
     @owner = Owner.where(room_id: @room.id).first
   end
 
-  def edit
-    @room = Room.find(params[:id])
-  end
+  def edit; end
 
   def update
     if @room.update(room_params)
@@ -51,5 +48,4 @@ class RoomsController < ApplicationController
   def set_room
     @room = Room.find(params[:id])
   end
-
 end
