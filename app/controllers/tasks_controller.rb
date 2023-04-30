@@ -20,6 +20,7 @@ class TasksController < ApplicationController
 
   def show
     @owner = Owner.where(room_id: @room.id).first
+    
   end
 
   def edit; end
