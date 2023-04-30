@@ -1,7 +1,7 @@
 <%= render "shared/header" %>
-<div class="main text-center">
+<div class="main text-center overflow-auto">
   <div class="w-50 m-auto bg-light  text-align-center mt-5 rounded-3">
-    <%= link_to '#',  class: "text-body btn " do %>
+    <%= link_to room_tasks_path(@room.id),  class: "text-body btn " do %>
     <h1><%= @room.name %></h1>
     
         <div class="room">

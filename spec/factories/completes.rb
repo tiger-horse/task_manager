@@ -1,4 +1,5 @@
 FactoryBot.define do
-  factory :room_user do
+  factory :complete do
+    
   end
 end

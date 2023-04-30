@@ -44,9 +44,9 @@ T# README
 ## tasks テーブル
 | Column             | Type       | Options                        |
 | -------            | ---------- | ------------------------------ |
-| task               | string     | null:false                     |
+| task_name          | string     | null:false                     |
 | content            | text       | null: false,                   |
-| date_of_schedue    | data       | null: false,                   |
+| start_time         | data       | null: false,                   |
 | is_completed       | boolean    | null: false,  default:false   |
 | user               | references | null: false, foreign_key: true |
 | room               | references | null: false, foreign_key: true |
