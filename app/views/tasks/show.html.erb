@@ -1,5 +1,6 @@
 <%= render "shared/header" %>
-<div class="main text-center overflow-auto">
+<div class="main">
+  <div class="text-center overflow-auto">
     <div class="w-50 m-auto bg-light  text-align-center mt-5 rounded-3">
       <%= link_to room_tasks_path(@task.room.id),  class: "text-body btn " do %>
       
@@ -11,14 +12,12 @@
               <%= @task.task_name %>
             </div>
           </div>
-          <div>
-            
-              <h5>作成者</h5>
-              <p><%= @task.user.nickname %></p>
-            
-              <p>完了状況：<%= @task.is_completed ? "完了" : "未完了" %></p>
-            
-            
+          <h5>作成者</h5>
+          <p><%= @task.user.nickname %></p>
+        
+          <p>完了状況：<%= @task.is_completed ? "完了" : "未完了" %></p>
+          
+              
             <% end %>
             <div class="w-50 m-auto bg-light  text-align-center mt-4 rounded-3">
             <% if user_signed_in? && current_user.id == @task.user.id || user_signed_in? && current_user.id == @owner.user.id %>
@@ -26,7 +25,8 @@
               <p class="or-text mt-3">or</p>
               <%= link_to "削除", room_task_path(@task.room_id, @task.id), method: :delete, class:"btn btn-danger", data: {confirm: "タスクを削除しますか？"} %>
             <% end %>
-          </div>
+            </div>
+    </div>
   </div>
 </div>
 <%= render "shared/footer" %>

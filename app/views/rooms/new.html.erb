@@ -1,5 +1,6 @@
 <%= render "shared/header" %>
-<div class="main d-flex justify-content-center bg-primary w-50 h-75 m-auto text-center mt-5 mb-5 rounded-3 bg-light overflow-auto">
+<div class="main" >
+<div class="d-flex justify-content-center bg-primary w-50 h-75 m-auto text-center mt-5 mb-5 rounded-3 bg-light overflow-auto">
 <div class='chat-room-form pt-5'>
   <h1>新規ルーム作成</h1>
   <%=form_with model: @room, local: true do |f|%>
@@ -37,6 +38,7 @@
       </div>
     </div>
   <% end %>
+</div>
 </div>
 </div>
 <%= render "shared/footer" %>

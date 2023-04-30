@@ -29,16 +29,16 @@
         <%= month_calendar events: @tasks do |date, tasks| %>
         <%= date.day %>
         <% tasks.each do |task| %>
-        <ul class ="list-unstyled task_ul d-flex">
+        <ul class ="list-unstyled task_ul">
           <% if task.is_completed %>
-            <li class="task_li task">
+            <li class="task_li task d-flex">
               <%= form_with url: complete_room_task_path(@room.id, task.id), method: :patch do |f| %>
                 <%= f.submit "完" %>
               <% end %>
               <%= link_to task.task_name, room_task_path(@room.id, task.id), method: :get, class: "text-decoration-none text-body task_completed"  %>
             </li>
         <% else %>
-              <li class="task_li">
+              <li class="task_li d-flex">
               <%= form_with url: unfinished_room_task_path(@room.id, task.id), method: :patch do |f| %>
                 <%= f.submit "未" %>
               <% end %>
