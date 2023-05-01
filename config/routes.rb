@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       member do
         patch :complete
         patch :unfinished
-      end      
+      end
     end
   end
 end

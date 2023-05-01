@@ -12,5 +12,4 @@ class User < ApplicationRecord
   has_many :rooms, through: :room_users
   has_many :owners
   has_many :tasks
-  has_many :completes
 end
