@@ -35,6 +35,78 @@
 .main {
   width: 100vw;
   height: calc(100vh - 100px);
+
+  overflow: scroll;
 }
+
+.burger {
+  display: none;
+  cursor: pointer;
+}
+.burger div{
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 5px;
+  transition: all 0.5s ease-in-out;
+}
+
+.nav-active{
+  transform: translateX(0%)!important;
+}
+
+.hamburger {
+  transition: all 0.5s ease-in-out!important;
+}
+
+@media screen  and (max-width: 768px) {
+  body{
+    overflow-x: hidden;
+  }
+  .hamburger {
+    position: absolute;
+    right: 0;
+    height: 100vh;
+    top: 6vh;
+    background-color: rgb(33, 37, 41);
+    flex-direction: column !important;
+    align-items: center;
+    width: 50%;
+    transform: translateX(100%);
+    justify-content: space-around;
+  }
+  .hamburger li {
+    opacity: 0;
+  }
+
+  .burger{
+    display: block;
+  }
+}
+
+@keyframes navLinksFade {
+  0% {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+.toggle .line1{
+ transform: rotate(-45deg) translate(-5px, 6px); 
+}
+
+.toggle .line2{
+opacity: 0;
+}
+
+.toggle .line3{
+ transform: rotate(405deg) translate(-5px, -6px);
+}
+
+
 
 
