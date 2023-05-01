@@ -4,7 +4,6 @@ class Task < ApplicationRecord
 
   with_options presence: true do
     validates :task_name
-    validates :content
     validates :start_time
   end
 end
