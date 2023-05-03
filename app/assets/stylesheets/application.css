@@ -36,7 +36,7 @@
   width: 100vw;
   height: calc(100vh - 100px);
 
-  overflow: scroll;
+  
 }
 
 .burger {
@@ -61,12 +61,12 @@
 
 @media screen  and (max-width: 768px) {
   body{
-    overflow-x: hidden;
+    overflow-x: hidden!important;
   }
   .hamburger {
-    position: absolute;
+    position: fixed;
     right: 0;
-    height: 100vh;
+    height: 78vh;
     top: 6vh;
     background-color: rgb(33, 37, 41);
     flex-direction: column !important;

@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 2023_04_26_052839) do
     t.boolean "is_completed", default: false
     t.bigint "room_id", null: false
     t.bigint "user_id", null: false
+    t.integer "category_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["room_id"], name: "index_tasks_on_room_id"

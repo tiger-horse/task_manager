@@ -1,22 +1,18 @@
 function post (){
-  const burger = document.querySelector(".burger");
-  const nav = document.querySelector(".hamburger");
-  const navLinks = document.querySelectorAll(".hamburger li")
+  const hamburger = document.querySelector('.burger');
+  const navLinks = document.querySelector('.hamburger');
+  const links = document.querySelectorAll('.hamburger li');
 
-  burger.addEventListener("click", () => {
-    nav.classList.toggle("nav-active");
-
-    navLinks.forEach((link, index) => {
-      if(link.style.animation){
-        link.style.animation = "";
+  hamburger.addEventListener('click', () => {
+  navLinks.classList.toggle('nav-active');
+  links.forEach((link, index) => {
+    if (link.style.animation) {
+      link.style.animation = '';
+    } else {
+      link.style.animation = `navLinksFade 0.5s ease forwards ${index / 7 + 0.3}s`;
       }
-      else{
-        link.style.animation = `navLinksFade 0.5s ease forwards ${
-          index / 7 + 0.4
-        }s`;
-      };
     });
-    burger.classList.toggle("toggle");
+    hamburger.classList.toggle('toggle');
   });
 };
 
