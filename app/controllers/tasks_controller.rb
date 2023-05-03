@@ -50,7 +50,8 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:task_name, :content, :start_time, :is_completed, :category_id).merge(user_id: current_user.id)
+    params.require(:task).permit(:task_name, :content, :start_time, :is_completed,
+                                 :category_id).merge(user_id: current_user.id)
   end
 
   def set_room

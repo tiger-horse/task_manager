@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
     @categories = @room.categories.includes(:room)
     @category = Category.new
   end
+
   def create
     # binding.pry
     @room = Room.find(params[:room_id])
@@ -17,24 +18,23 @@ class CategoriesController < ApplicationController
     end
   end
 
-  def edit
+  def edit; end
+
+  def update
+    if @category.update(category_params)
+      redirect_to room_categories_path(@room.id)
+    else
+      render :edit
+    end
   end
 
-    def update
-      if @category.update(category_params)
-        redirect_to room_categories_path(@room.id)
-      else
-        render :edit
-      end
-    end
-  
-    def destroy
-      @category.destroy
-      redirect_to room_categories_path(@room.id)
-    end
-
+  def destroy
+    @category.destroy
+    redirect_to room_categories_path(@room.id)
+  end
 
   private
+
   def category_params
     params.require(:category).permit(:name)
   end
@@ -43,5 +43,4 @@ class CategoriesController < ApplicationController
     @room = Room.find(params[:room_id])
     @category = @room.categories.find(params[:id])
   end
-  
 end
