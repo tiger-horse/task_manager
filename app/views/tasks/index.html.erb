@@ -19,10 +19,11 @@
       <%= f.label :タスク詳細, class: 'lavel' %>
       <%= f.text_area :content, class: 'form-control' %>
     </div>
-    <div class="mt-3">
+    <div class="mt-3"> 
       <%= f.label :カテゴリー, class: 'lavel' %>
-      <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"item-category"}) %>
+      <%= f.collection_select(:category_id, Category.where(room_id: params[:room_id]), :id, :name, {}, {class:"select-box", id:"item-category"}) %> 
     </div>
+    
     <div class="mt-3">
     <%= f.submit '保存', id: "task_submit"%>
     </div>

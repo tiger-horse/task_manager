@@ -7,13 +7,18 @@
       <h1 class="mt-3"><%= @task.task_name %></h1>
       
           <div class="room mt-4">
-            <div class="room-name mb-3">
+            <div class="room-name pb-3">
               <h5>詳細</h5>
               <%= @task.content %>
+              <% if @task&.category.present? %>
+                <h5 class="pt-3">カテゴリー</h5>
+                <%= @task.category.name %>
+              <% end %>
             </div>
           </div>
           <h5>作成者</h5>
           <p><%= @task.user.nickname %></p>
+          
         
           <p>完了状況：<%= @task.is_completed ? "完了" : "未完了" %></p>
           
