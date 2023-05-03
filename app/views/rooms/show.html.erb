@@ -23,10 +23,13 @@
           <% end %>
           <div>
             <% if user_signed_in? && current_user.id == @owner.user.id %>
-              <%= link_to "ルームの編集", edit_room_path(@room.id), method: :get, class:"btn btn-primary"  %>
-              <p class="or-text mt-3">or</p>
-              <%= link_to "削除", room_path(@room.id), method: :delete, class:"btn btn-danger", data: {confirm: "ルームを削除しますか？"} %>
+            <%= link_to "ルームの編集", edit_room_path(@room.id), method: :get, class:"btn btn-primary"  %>
+            <p class="or-text mt-3">or</p>
+            <%= link_to "削除", room_path(@room.id), method: :delete, class:"btn btn-danger", data: {confirm: "ルームを削除しますか？"} %>
             <% end %>
+          </div>
+          <div class="mt-5">
+          <%= link_to "カテゴリーの一覧", room_categories_path(@room.id), method: :get, class:"btn btn-success"  %>
           </div>
   </div>
 </div>
