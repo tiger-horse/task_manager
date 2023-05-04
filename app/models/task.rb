@@ -7,4 +7,6 @@ class Task < ApplicationRecord
     validates :task_name
     validates :start_time
   end
+
+  
 end

@@ -14,7 +14,7 @@
             <li class="nav-item">
               <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link text-white" %>
             </li>
-            <% if defined?(@room) && @room %>
+            <% if defined?(@room) && @room && !action_name.eql?("new") %>
               <li class="nav-item">
                 <%= link_to 'ルーム', room_tasks_path(@room.id), class: "nav-link text-white" %>
               </li>
