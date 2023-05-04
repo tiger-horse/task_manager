@@ -67,3 +67,4 @@ gem 'pry-rails'
 gem 'simple_calendar'
 
 gem 'active_hash'
+gem 'ransack'

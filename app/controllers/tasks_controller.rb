@@ -3,7 +3,9 @@ class TasksController < ApplicationController
   def index
     @task = Task.new
     @room = Room.find(params[:room_id])
-    @tasks = @room.tasks.includes(:user)
+    # @tasks = @room.tasks.includes(:user)
+    @q = @room.tasks.ransack(params[:q])
+    @tasks = @q.result.includes(:user)
   end
 
   def create
@@ -47,6 +49,11 @@ class TasksController < ApplicationController
     redirect_to room_tasks_path(@room.id)
   end
 
+  def search
+    @q = Task.ransack(params[:q])
+    @tasks = @q.result
+  end
+  
   private
 
   def task_params

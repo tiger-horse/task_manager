@@ -28,8 +28,21 @@
     <%= f.submit '保存', id: "task_submit"%>
     </div>
   <% end %>
-  
   </div>
+  <div class="text-center mx-auto my-5 mb-5">
+    <%= search_form_for Task.ransack(params[:q]), url: room_tasks_path(@room.id), html: {class: "search-form"} do |f| %>
+    <div class="search-field mb-3 p-2">
+      <%= f.label :category_id_in, 'カテゴリー検索', class: "mb-2" %>
+      <br>
+      <%= f.collection_check_boxes(:category_id_in, Category.where(room_id: params[:room_id]), :id, :name, {}, {class: "ms-4"}) %>
+    </div>
+        <input type="submit" value="検索" class="send">
+        <%= f.submit :submit, id: "q_submit", style: "display: none;"%>
+    <% end %>
+  </div>
+  
+  
+  
       <div class="room m-auto w-75">
         <%= month_calendar events: @tasks do |date, tasks| %>
         <%= date.day %>
@@ -42,21 +55,20 @@
               <% end %>
               <%= link_to task.task_name, room_task_path(@room.id, task.id), method: :get, class: "text-decoration-none text-body task_completed ps-3"  %>
             </li>
-        <% else %>
+          <% else %>
               <li class="task_li d-flex align-items-center ">
               <%= form_with url: unfinished_room_task_path(@room.id, task.id), method: :patch do |f| %>
                 <%= f.submit "未" %>
               <% end %>
               <%= link_to task.task_name, room_task_path(@room.id, task.id), method: :get, class: "text-decoration-none text-body task_completed ps-3"  %>
             </li>
-        <% end %>
+          <% end %>
           </li>
         </ul>
   <% end %>
 <% end %>
 
-
-      </div>
+</div>
        
 
 

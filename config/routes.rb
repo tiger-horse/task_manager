@@ -8,6 +8,9 @@ Rails.application.routes.draw do
         patch :complete
         patch :unfinished
       end
+      collection do
+        get 'search'
+      end
     end
   end
 end
