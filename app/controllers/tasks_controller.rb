@@ -53,7 +53,7 @@ class TasksController < ApplicationController
     @q = Task.ransack(params[:q])
     @tasks = @q.result
   end
-  
+
   private
 
   def task_params
