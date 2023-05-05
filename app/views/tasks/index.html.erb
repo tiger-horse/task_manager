@@ -29,6 +29,8 @@
     </div>
   <% end %>
   </div>
+  
+  
   <div class="text-center mx-auto my-5 mb-5  w-50 ">
     <%= search_form_for Task.ransack(params[:q]), url: room_tasks_path(@room.id), html: {class: "search-form"} do |f| %>
     <div class="search-field mb-3 p-2">
