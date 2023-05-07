@@ -1,6 +1,7 @@
 class Task < ApplicationRecord
   belongs_to :room
   belongs_to :user
+  belongs_to :edit_user, class_name: 'User'
   belongs_to :category
 
   with_options presence: true do

@@ -9,7 +9,7 @@ class TasksController < ApplicationController
   end
 
   def create
-    # binding.pry
+    binding.pry
     @room = Room.find(params[:room_id])
     @task = @room.tasks.new(task_params)
     if @task.save
@@ -27,7 +27,7 @@ class TasksController < ApplicationController
   def edit; end
 
   def update
-    if @task.update(task_params)
+    if @task.update(task_edit_params)
       redirect_to room_tasks_path(@room.id)
     else
       render :edit
@@ -58,7 +58,11 @@ class TasksController < ApplicationController
 
   def task_params
     params.require(:task).permit(:task_name, :content, :start_time, :is_completed,
-                                 :category_id).merge(user_id: current_user.id)
+                                 :category_id).merge(user_id: current_user.id, edit_user_id: current_user.id)
+  end
+  def task_edit_params
+    params.require(:task).permit(:task_name, :content, :start_time, :is_completed,
+                                 :category_id, :user_id).merge(edit_user_id: current_user.id)
   end
 
   def set_room
