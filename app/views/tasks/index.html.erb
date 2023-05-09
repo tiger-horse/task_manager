@@ -74,32 +74,6 @@
 
       </div>
 
-      <div class="room m-auto w-75" id="week_calendar">
-        
-        
-        <%= week_calendar(number_of_weeks: 2, events: @tasks) do |date, tasks| %>
-        <%= date.day %>
-        <% tasks.each do |task| %>       
-        <ul class ="list-unstyled task_ul ">
-          <% if task.is_completed %>
-              <li class="task_li task d-flex align-items-center">
-                <%= form_with url: complete_room_task_path(@room.id, task.id), method: :patch do |f| %>
-                  <%= f.submit "完" %>
-                <% end %>
-                <%= link_to task.task_name, room_task_path(@room.id, task.id), method: :get, class: "text-decoration-none text-body task_completed ps-3"  %>
-              </li>
-          <% else %>
-              <li class="task_li d-flex align-items-center ">
-              <%= form_with url: unfinished_room_task_path(@room.id, task.id), method: :patch do |f| %>
-                <%= f.submit "未" %>
-              <% end %>
-              <%= link_to task.task_name, room_task_path(@room.id, task.id), method: :get, class: "text-decoration-none text-body task_completed ps-3 btn"  %>
-              </li>
-          <% end %>
-          </li>
-        </ul>
-        <% end %>
-        <% end %>
         
       </div>
 
