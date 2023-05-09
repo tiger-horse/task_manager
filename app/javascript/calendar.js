@@ -10,7 +10,7 @@ function calendar () {
   const currentView = localStorage.getItem('calendarView');
   let defaultCalendar = localStorage.getItem('defaultCalendar') || 'month';
 
-  カレンダーの表示状態を復元する
+  // カレンダーの表示状態を復元する
   if (currentView === 'week') {
     monthCalendar.style.display = 'none';
     weekCalendar.style.display = 'block';
