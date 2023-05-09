@@ -7,6 +7,7 @@
       <span class="calendar-title"><%= t('simple_calendar.week', default: 'Week') %> <%= calendar.week_number %> - <%= calendar.end_week %></span>
     <% end %>
     <%= link_to t('simple_calendar.next', default: '次週'), calendar.url_for_next_view %>
+    <%= link_to "月", room_tasks_path(@room.id), method: :get, class: "ps-3 btn btn-outline-dark"  %>
   </div>
 
   <table class="table table-striped">

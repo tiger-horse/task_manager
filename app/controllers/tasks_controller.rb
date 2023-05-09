@@ -9,6 +9,14 @@ class TasksController < ApplicationController
     @tasks = @q.result.includes(:user)
   end
 
+  def week
+    @task = Task.new
+    @room = Room.find(params[:room_id])
+    # @tasks = @room.tasks.includes(:user)
+    @q = @room.tasks.ransack(params[:q])
+    @tasks = @q.result.includes(:user)
+  end
+
   def create
     @room = Room.find(params[:room_id])
     @task = @room.tasks.new(task_params)
@@ -76,5 +84,5 @@ class TasksController < ApplicationController
   def set_beginning_of_week
     Date.beginning_of_week = :sunday
   end
-  
+
 end

@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       end
       collection do
         get 'search'
+        get "week"
       end
     end
   end

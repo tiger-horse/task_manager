@@ -48,8 +48,8 @@
   
   
 
-      <div class="room m-auto w-75" id="month_calendar">
-        <%= month_calendar events: @tasks do |date, tasks| %>
+<div class="room m-auto w-75" id="month_calendar">
+        <%= week_calendar ({ number_of_weeks: 2, events: @tasks }) do |date, tasks| %>
           <%= date.day %>
           <% tasks.each do |task| %>       
           <ul class ="list-unstyled task_ul ">
@@ -73,14 +73,8 @@
           <% end %>
         <% end %>
 
+
+
       </div>
-
-        
-      </div>
-
-      
-      
-</div>
-<%= render "shared/footer" %>
-
-
+    </div>
+    <%= render "shared/footer" %>
