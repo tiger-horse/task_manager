@@ -8,6 +8,7 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("../hamburger")
+require("../calendar")
 import "bootstrap"
 import "../stylesheets/application"
 

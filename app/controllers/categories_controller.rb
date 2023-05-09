@@ -7,7 +7,6 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    # binding.pry
     @room = Room.find(params[:room_id])
     @category = @room.categories.new(category_params)
 

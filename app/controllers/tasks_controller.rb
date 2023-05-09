@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_room, only: %i[show edit update destroy unfinished complete]
+  before_action :set_beginning_of_week
   def index
     @task = Task.new
     @room = Room.find(params[:room_id])
@@ -9,7 +10,6 @@ class TasksController < ApplicationController
   end
 
   def create
-    binding.pry
     @room = Room.find(params[:room_id])
     @task = @room.tasks.new(task_params)
     if @task.save
@@ -69,4 +69,12 @@ class TasksController < ApplicationController
     @room = Room.find(params[:room_id])
     @task = @room.tasks.find(params[:id])
   end
+
+  
+
+
+  def set_beginning_of_week
+    Date.beginning_of_week = :sunday
+  end
+  
 end

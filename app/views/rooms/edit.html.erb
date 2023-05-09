@@ -22,7 +22,7 @@
       <div class='chat-room-form__field--right mt-3'>
         <% User.where.not(id: current_user.id).each do |user| %>
           <label>
-            <%= check_box_tag "room[user_ids][]", user.id %>
+            <%= check_box_tag "room[user_ids][]", user.id, @room.users.include?(user), id: "user_#{user.id}"  %>
             <%= user.nickname %>
           </label>
         <% end %>
