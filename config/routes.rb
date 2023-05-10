@@ -12,6 +12,7 @@ Rails.application.routes.draw do
         get 'search'
         get "week"
       end
+      resources :comments, only: [:create, :destroy]
     end
   end
 end

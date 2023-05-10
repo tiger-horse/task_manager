@@ -68,3 +68,5 @@ gem 'simple_calendar'
 
 gem 'active_hash'
 gem 'ransack'
+
+gem 'rails-i18n'

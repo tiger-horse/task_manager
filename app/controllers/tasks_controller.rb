@@ -30,6 +30,8 @@ class TasksController < ApplicationController
 
   def show
     @owner = Owner.where(room_id: @room.id).first
+    @comment = Comment.new
+    @comments = @task.comments.includes(:user)
   end
 
   def edit; end
