@@ -1,0 +1,35 @@
+<%= render "shared/header" %>
+<div class="main d-flex justify-content-center bg-primary w-50 m-auto text-center mt-5 mb-5 rounded-3 bg-light">
+  <%= form_with model: current_user, local: true do |f|%>
+    <div class='form-wrap'>
+      <div class='form-header pt-5'>
+        <h1 class='form-header-text'>
+          ユーザー情報編集
+        </h1>
+      </div>
+
+  
+ 
+    <%= render 'shared/error_messages', model: f.object %>
+  
+  <div class="form-group mt-5 mb-2">
+    <div class='form-text-wrap'>
+      <label class="form-text form-label">ニックネーム</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.text_field :nickname, class:"input-default w-50", id:"nickname", placeholder:"例) 佐藤実", maxlength:"40" %>
+  </div>
+  <div class="form-group mb-2">
+    <div class='form-text-wrap'>
+      <label class="form-text">メールアドレス</label>
+      <span class="indispensable">必須</span>
+    </div>
+    <%= f.email_field :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %>
+  </div>
+  <div class='register-btn'>
+    <%= f.submit "更新" ,class:"btn btn-primary" %>
+  </div>
+</div>
+<% end %>
+</div>
+<%= render "shared/footer" %>

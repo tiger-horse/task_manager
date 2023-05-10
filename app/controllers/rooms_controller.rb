@@ -15,7 +15,7 @@ class RoomsController < ApplicationController
     if @room.save
       Owner.create(name: current_user.nickname, user_id: current_user.id, room_id: @room.id)
       Category.create(name: '---', room_id: @room.id)
-      redirect_to root_path
+      redirect_to room_tasks_path(@room.id)
     else
       render :new
     end

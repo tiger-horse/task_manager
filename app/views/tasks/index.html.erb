@@ -58,7 +58,7 @@
                   <%= form_with url: complete_room_task_path(@room.id, task.id), method: :patch do |f| %>
                     <%= f.submit "完" %>
                   <% end %>
-                  <%= link_to task.task_name, room_task_path(@room.id, task.id), method: :get, class: "text-decoration-none text-body task_completed ps-3 btn btn-outline-light"  %>
+                  <%= link_to task.task_name, room_task_path(@room.id, task.id), method: :get, class: "text-decoration-none text-body task_completed ps-3 "  %>
                 </li>
             <% else %>
                 <li class="task_li d-flex align-items-center ">
