@@ -1,12 +1,16 @@
 <div class= "header bg-dark">
   <nav class="navbar navbar-expand navbar-light ">
     <div class="container-fluid ">
+      <% if defined?(@room) && @room && !action_name.eql?("new") %>
+      <%= link_to @room.name, room_path(@room.id), class: "navbar-brand text-white"  %>
+      <% else %>
       <%= link_to "タスクマネージャー", root_path, class: "navbar-brand text-white"  %>
+      <% end %>
       <div class="collapse navbar-collapse " id="navbarNav">
         <ul class="navbar-nav ms-auto hamburger">
           <% if user_signed_in? %>
             <li class="nav-item">
-              <%= link_to current_user.nickname, "#", class: "nav-link text-white" %>
+              <%= link_to current_user.nickname, root_path, class: "nav-link text-white" %>
             </li>
             <li class="nav-item">
               <%= link_to 'ルーム作成', new_room_path, class: "nav-link text-white" %>
