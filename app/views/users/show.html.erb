@@ -1,6 +1,6 @@
 <%= render "shared/header" %>
 <div class="main gr-users-edit pt-5 overflow-auto">
-  <div class="w-50 m-auto bg-light  text-align-center mt-5 mb-5 rounded-3 text-center">
+  <div class="w-50 m-auto bg-light  text-align-center  rounded-3 text-center">
     <% if user_signed_in? %>
     <div class="pt-3">
       <h1><%= current_user.nickname %></h1>
@@ -15,7 +15,7 @@
     </div>
 
 
-      <div class="my-5">
+      <div class="py-5">
         <h3>参加しているルーム</h3>
           <% current_user.rooms.each do |room| %>
             <div class="room">
