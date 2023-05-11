@@ -1,6 +1,6 @@
 <%= render "shared/header" %>
-<div class="main overflow-auto">
-  <div class="text-center">
+<div class="main gr-task-show overflow-auto">
+  <div class="text-center ">
     <div class="w-50 m-auto bg-light  text-align-center mt-5 rounded-3 mb-5">
       <%= link_to room_tasks_path(@task.room.id),  class: "text-body btn " do %>
       
@@ -14,6 +14,10 @@
                 <h5 class="pt-3">カテゴリー</h5>
                 <%= @task.category.name %>
               <% end %>
+              <div class="p-2 <%= 'text-danger' if Date.parse(l(@task.start_time.to_date, format: :short)) < Date.current %>">
+                <h5>予定日</h5>
+                <p><%= l @task.start_time.to_date, format: :short %></p>
+              </div>
             </div>
           </div>
           <h5>作成者</h5>
@@ -22,9 +26,12 @@
           <% if @task.edit_user_id? %>
           <h5>編集者</h5>
           <p><%= @task.edit_user.nickname %></p>
+          <p>編集日：<%= l @task.updated_at , format: :short%></p>
           <% end %>
+
         
           <p>完了状況：<%= @task.is_completed ? "完了" : "未完了" %></p>
+          
   
     
             <% end %>
@@ -61,7 +68,7 @@
           
             
 
-            <div class="w-50 m-auto bg-light  text-align-center mt-4 rounded-3">
+            <div class="w-50 m-auto bg-light  text-align-center mt-4  pb-5 rounded-3 ">
             <% if user_signed_in? && current_user.id == @task.user.id || user_signed_in? && current_user.id == @owner.user.id %>
               <%= link_to "タスクの編集", edit_room_task_path(@task.room_id, @task.id), method: :get, class:"btn btn-primary"  %>
               <p class="or-text mt-3">or</p>

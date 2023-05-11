@@ -1,8 +1,8 @@
 <%= render "shared/header" %>
-<div class="main text-center overflow-auto">
-  <div class="w-50 m-auto bg-light  text-align-center mt-5 rounded-3">
+<div class="main gr-users-edit pt-5 overflow-auto">
+  <div class="w-50 m-auto bg-light  text-align-center mt-5 mb-5 rounded-3 text-center">
     <% if user_signed_in? %>
-    <div>
+    <div class="pt-3">
       <h1><%= current_user.nickname %></h1>
       <div class="mt-3">
         <h2>メールアドレス</h2>
@@ -15,11 +15,11 @@
     </div>
 
 
-      <div class="mt-5">
+      <div class="my-5">
         <h3>参加しているルーム</h3>
           <% current_user.rooms.each do |room| %>
             <div class="room">
-              <div class="room-name mb-3">
+              <div class="room-name pb-3">
                 <%= link_to room.name, room_tasks_path(room.id),  class: "text-decoration-none text-white btn btn-secondary" %>
               </div>
             </div>

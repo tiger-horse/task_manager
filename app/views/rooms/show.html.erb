@@ -1,6 +1,6 @@
 <%= render "shared/header" %>
-<div class="main text-center overflow-auto">
-  <div class="w-50 m-auto bg-light  text-align-center mt-5 rounded-3">
+<div class="main text-center pt-5 gr-show">
+  <div class="w-50 m-auto bg-light  text-align-center  rounded-3 overflow-auto">
     <%= link_to room_tasks_path(@room.id),  class: "text-body btn " do %>
     <h1><%= @room.name %></h1>
     
@@ -8,7 +8,7 @@
           <div class="room-name mb-3">
             <h5>参加者</h5>
             <% @room.users.where.not(id: current_user.id).each do |user| %>
-              <p><%= user.nickname %></p>
+              <p><%= user.nickname %>さん</p>
             <% end %>
           </div>
         </div>
@@ -28,7 +28,7 @@
             <%= link_to "削除", room_path(@room.id), method: :delete, class:"btn btn-danger", data: {confirm: "ルームを削除しますか？"} %>
             <% end %>
           </div>
-          <div class="mt-5">
+          <div class="my-5">
           <%= link_to "カテゴリーの一覧", room_categories_path(@room.id), method: :get, class:"btn btn-success"  %>
           </div>
   </div>

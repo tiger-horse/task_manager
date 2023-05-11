@@ -1,5 +1,6 @@
 <%= render "shared/header" %>
-<div class="main d-flex justify-content-center bg-primary w-50 m-auto text-center mt-5 mb-5 rounded-3 bg-light">
+<div class="main gr-users-new pt-5">
+<div class="d-flex justify-content-center bg-primary w-50 m-auto text-center  mb-5 rounded-3 bg-light">
   <%= form_with model: current_user, local: true do |f|%>
     <div class='form-wrap'>
       <div class='form-header pt-5'>
@@ -26,10 +27,11 @@
     </div>
     <%= f.email_field :email, class:"input-default", id:"email", placeholder:"PC・携帯どちらでも可", autofocus: true %>
   </div>
-  <div class='register-btn'>
+  <div class='register-btn my-5'>
     <%= f.submit "更新" ,class:"btn btn-primary" %>
   </div>
 </div>
 <% end %>
+</div>
 </div>
 <%= render "shared/footer" %>
