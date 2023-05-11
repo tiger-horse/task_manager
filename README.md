@@ -1,68 +1,17 @@
-# README
+# アプリケーション名
+タスクマネージャー
 
-T# README
+# アプリケーション概要
+タスクをグループで管理することができる
 
-## _usersテーブル
+# URL
+https://task-manager-cqi0.onrender.com/
 
-| Column             | Type   | Options     |
-| ------------------ | ------ | ----------- |
-| nickname           | string | null: false |
-| email              | string | null: false, unique: true |
-| encrypted_password | string | null: false |
+# テスト用アカウント
 
-
-- has_many :room_users
-- has_many :rooms, through: :room_users
-- has_many :messages
-
-
-
-
-## rooms テーブル
-
-| Column | Type   | Options     |
-| ------ | ------ | ----------- |
-| name   | string | null: false |
-
-- has_many :room_users
-- has_many :users, through: :room_users
-- has_many :messages
-- has_many :tasks
-
-
-## room_users テーブル
-
-| Column | Type       | Options                        |
-| ------ | ---------- | ------------------------------ |
-| user   | references | null: false, foreign_key: true |
-| room   | references | null: false, foreign_key: true |
-
-- belongs_to :room
-- belongs_to :user
-- has_many :tasks
-
-## tasks テーブル
-| Column             | Type       | Options                        |
-| -------            | ---------- | ------------------------------ |
-| task_name          | string     | null:false                     |
-| content            | text       | null: false,                   |
-| start_time         | data       | null: false,                   |
-| is_completed       | boolean    | null: false,  default:false   |
-| user               | references | null: false, foreign_key: true |
-| room               | references | null: false, foreign_key: true |
-
-
-- belongs_to :room
-- belongs_to :user
-
-## messages テーブル
-
-| Column  | Type       | Options                        |
-| ------- | ---------- | ------------------------------ |
-| comment | string     |                                |
-| user    | references | null: false, foreign_key: true |
-| task    | references | null: false, foreign_key: true |
-
-- belongs_to :user
-- belongs_to :task
-
+# 利用方法
+1.ユーザーのアカウントを登録する
+2.ルームを作成する
+3.タスクを入力してカレンダーに反映する
+4.タスクが終わったら完を押すと文字が薄くなる
+5.カレンダーにあるタスクをクリックすると詳細に遷移してコメントを書くことができる
