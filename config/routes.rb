@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: 'rooms#index'
-  resources :users, only: [:edit, :update, :show]
+  resources :users, only: %i[edit update show]
   resources :rooms do
     resources :categories
     resources :tasks do
@@ -11,9 +11,9 @@ Rails.application.routes.draw do
       end
       collection do
         get 'search'
-        get "week"
+        get 'week'
       end
-      resources :comments, only: [:create, :destroy]
+      resources :comments, only: %i[create destroy]
     end
   end
 end

@@ -70,6 +70,7 @@ class TasksController < ApplicationController
     params.require(:task).permit(:task_name, :content, :start_time, :is_completed,
                                  :category_id).merge(user_id: current_user.id, edit_user_id: current_user.id)
   end
+
   def task_edit_params
     params.require(:task).permit(:task_name, :content, :start_time, :is_completed,
                                  :category_id, :user_id).merge(edit_user_id: current_user.id)
@@ -80,11 +81,7 @@ class TasksController < ApplicationController
     @task = @room.tasks.find(params[:id])
   end
 
-  
-
-
   def set_beginning_of_week
     Date.beginning_of_week = :sunday
   end
-
 end
