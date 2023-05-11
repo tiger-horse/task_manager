@@ -26,3 +26,10 @@ https://docs.google.com/spreadsheets/d/1cZTISsKTWjd0uBeKCNqLROKoCGaxNdVtIk-RO1Q_
 # 実装した機能についての画像
 ![完了前](/pixel/完了前.png)
 ![完了後](/pixel/完了後.png)
+
+# 開発言語
+HTML
+
+CSS(bootstrap5も含む)
+
+Ruby on Rails
