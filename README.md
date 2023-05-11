@@ -19,3 +19,10 @@ https://task-manager-cqi0.onrender.com/
 4.タスクが終わったら完を押すと文字が薄くなる
 
 5.カレンダーにあるタスクをクリックすると詳細に遷移してコメントを書くことができる
+
+# 洗い出した要件
+https://docs.google.com/spreadsheets/d/1cZTISsKTWjd0uBeKCNqLROKoCGaxNdVtIk-RO1Q_RJc/edit?usp=sharing
+
+# 実装した機能についての画像
+![完了前](/pixel/完了前.png)
+![完了後](/pixel/完了後.png)
