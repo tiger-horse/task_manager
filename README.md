@@ -13,7 +13,6 @@
 
 2. 検索で見つけやすくするのを解決するためには、タグを自分で作成してタグごとに検索が必要だと考えました。
 
-
 # URL
 https://task-manager-cqi0.onrender.com/
 
@@ -48,7 +47,7 @@ https://task-manager-cqi0.onrender.com/
 https://docs.google.com/spreadsheets/d/1cZTISsKTWjd0uBeKCNqLROKoCGaxNdVtIk-RO1Q_RJc/edit?usp=sharing
 
 # 実装した機能についての画像
-![完了後](/pixel/完了後.png "完了後"))
+![完了後](/pixel/完了後.png )"完了後"
 
 # 開発言語
 HTML
