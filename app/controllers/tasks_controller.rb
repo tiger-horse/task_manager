@@ -85,3 +85,4 @@ class TasksController < ApplicationController
     Date.beginning_of_week = :sunday
   end
 end
+
